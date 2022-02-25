@@ -23,7 +23,7 @@ Or install it yourself as:
 ## Usage
 
 ```
-$ BIGQUERY_CREDENTIALS=./cred.json bundle exec exe/genbqq merge web-u-project.sample_dataset.many_cols_tbl
+$ BIGQUERY_CREDENTIALS=./cred.json genbqq merge web-u-project.sample_dataset.many_cols_tbl
 -- project: web-u-project
 -- dataset: sample_dataset
 -- table: many_cols_tbl
