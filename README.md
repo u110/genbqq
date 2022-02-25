@@ -22,7 +22,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ BIGQUERY_CREDENTIALS=./cred.json bundle exec exe/genbqq merge web-u-project.sample_dataset.many_cols_tbl
+-- project: web-u-project
+-- dataset: sample_dataset
+-- table: many_cols_tbl
+MERGE `web-u-project.sample_dataset.many_cols_tbl` target USING `web-u-project.sample_dataset.many_cols_tbl_tmp` tmp
+ON(target.id = tmp.id)
+WHEN MATCHED AND target.updated_at < tmp.updated_at THEN
+  -- idが一致かつ、更新日時が増えている場合は行を更新する
+  UPDATE SET
+  -- 更新対象としたいカラムをすべて記述する
+  ...
+  target.updated_at = tmp.updated_at
+WHEN NOT MATCHED THEN
+  -- 不一致 = 新規行として判断し、追加する
+  INSERT ROW
+```
+
 
 ## Development
 
