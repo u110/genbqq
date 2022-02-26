@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install genbqq
+    $ gem install genbqq --version "0.1.0" --source "https://rubygems.pkg.github.com/u110"
 
 ## Usage
 
